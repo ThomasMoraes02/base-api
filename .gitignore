@@ -1,0 +1,5 @@
+vendor
+docker/mysql
+docker/nginx/logs
+
+.env
