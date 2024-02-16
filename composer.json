@@ -22,7 +22,10 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/"
-        }
+        },
+        "files": [
+            "config/global_functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
