@@ -17,11 +17,15 @@ $app->get("/", function(Request $request, Response $response, array $args) {
     return $response;
 });
 
+$app->add(ErrorMiddleware::class);
+$app->add(OutputJsonMiddleware::class);
+
 $app->post("/api/v1/auth", [AuthController::class, "store"]);
 
 $app->group("/api/v1",function(RouteCollectorProxy $group) {
+    $group->get("/test", function(Request $request, Response $response) {
+        $response->getBody()->write(json_encode("Hello World Authenticated!"));
+        return $response;
+    });
     // Routes Here!!!
 })->add(AuthMiddleware::class)->add(CorsMiddleware::class);
-
-$app->add(ErrorMiddleware::class);
-$app->add(OutputJsonMiddleware::class);

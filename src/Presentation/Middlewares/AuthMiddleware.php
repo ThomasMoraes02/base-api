@@ -16,7 +16,7 @@ class AuthMiddleware implements MiddlewareInterface
     {
         $token = $request->getHeaderLine('Authorization');
         $tokenManager = $this->container->get('TokenManager');
-        $decoded = $tokenManager->decode($token ?? '');
+        $decoded = $tokenManager->decode($token);
 
         if(isset($decoded['error'])) {
             $response = new Response();

@@ -44,8 +44,12 @@ class TokenFirebaseJWT implements TokenManager
 
     private function decodedToken(string $token): stdClass
     {
-        $key = new Key($_ENV['AUTH_SECRET_KEY'],$_ENV['AUTH_ALGORITHM']);
-        return JWT::decode($token,$key);
+        try {
+            $key = new Key($_ENV['AUTH_SECRET_KEY'],$_ENV['AUTH_ALGORITHM']);
+            return JWT::decode($token,$key);
+        } catch(Throwable $e) {
+            throw new Exception("Invalid Token");
+        }
     }
 
     private function tokenExpired(stdClass $token): bool
