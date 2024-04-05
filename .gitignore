@@ -2,4 +2,6 @@ vendor
 docker/mysql
 docker/nginx/logs
 
+storage/logs/*
+
 .env
