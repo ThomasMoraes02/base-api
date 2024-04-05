@@ -5,6 +5,8 @@ use Slim\Psr7\Response;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use App\Presentation\Controllers\AuthController;
+use App\Presentation\Middlewares\AuthMiddleware;
+use App\Presentation\Middlewares\CorsMiddleware;
 use App\Presentation\Middlewares\ErrorMiddleware;
 use App\Presentation\Middlewares\OutputJsonMiddleware;
 
@@ -19,7 +21,7 @@ $app->post("/api/v1/auth", [AuthController::class, "store"]);
 
 $app->group("/api/v1",function(RouteCollectorProxy $group) {
     // Routes Here!!!
-});
+})->add(AuthMiddleware::class)->add(CorsMiddleware::class);
 
 $app->add(ErrorMiddleware::class);
 $app->add(OutputJsonMiddleware::class);
