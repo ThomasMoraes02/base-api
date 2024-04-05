@@ -1,4 +1,4 @@
-APP_NAME=BlingService
+APP_NAME=
 
 # DOCKER
 WEBSERVER_PORT=

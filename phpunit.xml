@@ -1,6 +1,6 @@
 <phpunit bootstrap="vendor/autoload.php">
     <php>
-        <env name="APP_NAME" value="BlingService"/>
+        <env name="APP_NAME" value="APP"/>
         <env name="AUTH_EXPIRATION_TOKEN" value="1"/>
         <env name="AUTH_ALGORITHM" value="HS256"/>
         <env name="AUTH_SECRET_KEY" value="anywhere"/>
