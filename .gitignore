@@ -5,3 +5,5 @@ docker/nginx/logs
 storage/logs/*
 
 .env
+
+.phpunit.result.cache
